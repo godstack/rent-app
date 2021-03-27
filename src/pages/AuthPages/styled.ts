@@ -7,7 +7,7 @@ export const StyledFormWrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   padding: 77px 55px 33px 55px;
-  box-shadow: 0 5px 10px 0px rgb(0 0 0 / 10%);
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.5);
 `;
 
 export const StyledFormTitle = styled.div`
@@ -57,7 +57,7 @@ export const StyledInput = styled.input`
 
 export const StyledErrorMessage = styled.div`
   position: absolute;
-  bottom: -20px;
+  bottom: -30px;
   color: #e62922;
   font-size: 1.2rem;
 `;
@@ -79,9 +79,32 @@ export const StyledSubmit = styled.button`
   border: 2px solid #f7ca18;
   background: #353535;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  margin-bottom: 15px;
 
   &:hover {
     background: #f7ca18;
     color: #353535;
+  }
+`;
+
+export const StyledLink = styled.div`
+  width: fit-content;
+  margin: 0 auto;
+
+  a {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #353535;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: #353535;
+      text-decoration: none;
+    }
   }
 `;

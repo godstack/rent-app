@@ -1,8 +1,12 @@
 import { FC } from 'react';
-import { StyledHeader } from './styled';
+import { StyledHeader, StyledLogo } from './styled';
 
 const Header: FC = () => {
-  return <StyledHeader>Header</StyledHeader>;
+  return (
+    <StyledHeader>
+      <StyledLogo>Оренда квартир</StyledLogo>
+    </StyledHeader>
+  );
 };
 
 export default Header;
