@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App: FC = () => {
   const auth = useAuth();
 
-  let routes = useRoutes(!!auth.token);
+  let routes = useRoutes();
 
   return (
     <Router>

@@ -2,9 +2,12 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import LoginPage from 'pages/AuthPages/LoginPage';
 import RegisterPage from 'pages/AuthPages/RegisterPage';
 import MainPage from 'pages/MainPage';
+import { useAuth } from './useAuth';
 
-export const useRoutes = (isAuthenticated: boolean) => {
-  if (isAuthenticated) {
+export const useRoutes = () => {
+  const auth = useAuth();
+
+  if (auth.token) {
     return (
       <section className='workspace'>
         <Switch>
