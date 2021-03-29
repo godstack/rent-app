@@ -24,11 +24,11 @@ export interface IAllAnnouncements {
   items: number;
 }
 
-export const defaultAllAnnouncementsPayload = {
+export const defaultAllAnnouncementsPayload: IAllAnnouncements = {
   fromPrice: 0,
   toPrice: 0,
   city: '',
-  heatingType: 'Власне',
+  heatingType: '',
   fromSquare: 0,
   toSquare: 0,
   fromYear: 0,
