@@ -12,6 +12,7 @@ export const useRoutes = () => {
       <section className='workspace'>
         <Switch>
           <Route path='/main' exact component={MainPage} />
+          <Route path='/announcement/:id' exact component={MainPage} />
           <Redirect to='/main' />
         </Switch>
       </section>

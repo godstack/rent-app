@@ -7,6 +7,33 @@ interface IAuth {
   password: string;
 }
 
+export interface IAnnouncement {
+  announcementId: number;
+  city: string;
+  createdAt: string;
+  description: string;
+  price: number;
+  realtyInformation: {
+    address: string;
+    heatingType: string;
+    images: {
+      imageInfoId: number;
+      name: string;
+      path: string;
+      realtyInformation: string | null;
+      realtyInformationId: number;
+    }[];
+    realtyInformationId: number;
+    roomCount: number;
+    square: number;
+    year: number;
+  };
+  realtyInformationId: number;
+  rentUser: string | null;
+  rentUserId: number;
+  title: string;
+}
+
 export interface IAllAnnouncements {
   fromPrice: number;
   toPrice: number;
