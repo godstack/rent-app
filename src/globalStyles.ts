@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 * {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Arial, sans-serif
 }
 
 /* Убираем внутренние отступы */

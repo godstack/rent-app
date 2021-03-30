@@ -13,7 +13,9 @@ import {
   StyledDateInputWrapper,
   StyledSubmit,
   StyledSelect,
-  StyledErrorMessage
+  StyledErrorMessage,
+  ResetButton,
+  StyledButtonsWrapper
 } from './styled';
 
 interface IProps {
@@ -25,7 +27,8 @@ export const FilterForm: FC<IProps> = ({ getAllAnnouncements }) => {
     register,
     errors,
     handleSubmit,
-    setError
+    setError,
+    reset
   } = useForm<IAllAnnouncements>({
     defaultValues: defaultAllAnnouncementsPayload
   });
@@ -87,6 +90,12 @@ export const FilterForm: FC<IProps> = ({ getAllAnnouncements }) => {
     };
 
     getAllAnnouncements(preparedData);
+  };
+
+  const handleClearFilter = () => {
+    reset(defaultAllAnnouncementsPayload);
+
+    getAllAnnouncements(defaultAllAnnouncementsPayload);
   };
 
   return (
@@ -230,7 +239,10 @@ export const FilterForm: FC<IProps> = ({ getAllAnnouncements }) => {
         </StyledDateInputWrapper>
       </StyledLabel>
 
-      <StyledSubmit type='submit'>Пошук</StyledSubmit>
+      <StyledButtonsWrapper>
+        <ResetButton onClick={handleClearFilter}>Очистити фільтр</ResetButton>
+        <StyledSubmit type='submit'>Пошук</StyledSubmit>
+      </StyledButtonsWrapper>
     </StyledForm>
   );
 };

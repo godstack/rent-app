@@ -84,5 +84,12 @@ export const RentApi = {
         authorization: `Bearer ${token}`
       }
     });
+  },
+  getAnnouncementById(id: string, token: string) {
+    return axios.get(`${localhost}/api/Announcement/${id}`, {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
   }
 };

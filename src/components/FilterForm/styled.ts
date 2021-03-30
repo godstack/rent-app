@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledForm = styled.form`
   position: fixed;
-  top: calc(50% - 300px);
+  top: 100px;
   left: 30px;
   padding: 20px;
   background-color: #ffb31c;
@@ -98,4 +98,23 @@ export const StyledErrorMessage = styled.div`
   bottom: -7px;
   color: #e62922;
   font-size: 0.8rem;
+`;
+
+export const StyledButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+export const ResetButton = styled(StyledSubmit)`
+  letter-spacing: 0.5px;
+  width: 150px;
+
+  &:hover {
+    background: #42bff5;
+    box-shadow: 0 15px 20px rgba(66, 191, 245, 0.4);
+    color: white;
+    transform: translateY(-7px);
+  }
 `;

@@ -10,7 +10,7 @@ import {
   defaultAllAnnouncementsPayload,
   IAnnouncement
 } from 'RentApi';
-import { StyledMain } from './styled';
+import { StyledMain, StyledNoInfo } from './styled';
 import { FilterForm } from 'components/FilterForm';
 
 const MainPage: FC = () => {
@@ -25,7 +25,6 @@ const MainPage: FC = () => {
 
     try {
       const res = await RentApi.getAllAnnouncements(auth.token, payload);
-      console.log(res);
 
       setAnnouncements(res.data.items);
 
@@ -48,9 +47,15 @@ const MainPage: FC = () => {
       <FilterForm getAllAnnouncements={getAllAnnouncements} />
       {isLoading && <Loader />}
 
-      {announcements.map(item => (
-        <Announcement announcement={item} />
-      ))}
+      {announcements.length ? (
+        announcements.map(item => (
+          <Announcement announcement={item} key={item.announcementId} />
+        ))
+      ) : (
+        <StyledNoInfo>
+          Немає жодної об'яви, що відповідає вибраним фільтрам
+        </StyledNoInfo>
+      )}
     </StyledMain>
   );
 };
