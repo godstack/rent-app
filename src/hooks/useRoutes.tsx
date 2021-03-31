@@ -11,14 +11,12 @@ export const useRoutes = () => {
 
   if (auth.token) {
     return (
-      <section className='workspace'>
-        <Switch>
-          <Route path='/main' exact component={MainPage} />
-          <Route path='/reserved' exact component={ReservedPage} />
-          <Route path='/announcement/:id' exact component={AnnouncementPage} />
-          <Redirect to='/main' />
-        </Switch>
-      </section>
+      <Switch>
+        <Route path='/main' exact component={MainPage} />
+        <Route path='/reserved' exact component={ReservedPage} />
+        <Route path='/announcement/:id' exact component={AnnouncementPage} />
+        <Redirect to='/main' />
+      </Switch>
     );
   }
 

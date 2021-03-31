@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledMain = styled.div`
   margin-top: 30px;
+  margin-left: 500px;
 `;
 
 export const StyledNoInfo = styled.div`
