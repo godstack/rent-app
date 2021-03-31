@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  min-height: 55px;
+  min-height: 70px;
   padding: 0 30px;
   background-color: #fff;
   box-shadow: 1px 2px 5px 0 rgb(0 0 0 / 26%);
@@ -45,5 +45,33 @@ export const StyledExitButton = styled.div`
     border-color: #bd0606;
     width: calc(100% - 10px);
     height: calc(100% + 10px);
+  }
+`;
+
+export const LinksWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 70px;
+`;
+
+export const StyledLink = styled.div`
+  padding: 0 15px;
+  cursor: pointer;
+  height: 100%;
+
+  transition: background-color 0.3s ease-in-out;
+
+  a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &:hover {
+    background-color: #97bcf7;
   }
 `;

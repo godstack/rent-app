@@ -115,7 +115,7 @@ export const AnnouncementPage: FC = () => {
             </div>
 
             <StyledCreatedAt>
-              {format(new Date(announcement.createdAt), 'dd.mm.yyyy hh:mm')}
+              {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
             </StyledCreatedAt>
           </StyledBlock>
         </>

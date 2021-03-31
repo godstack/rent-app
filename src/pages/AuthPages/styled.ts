@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledFormWrapper = styled.div`
   margin-top: 100px;
-  width: 390px;
+  width: 450px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;

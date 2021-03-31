@@ -24,15 +24,17 @@ export const Announcement: FC<IProps> = ({ announcement }) => {
     heatingType,
     roomCount,
     square,
-    year
+    year,
+    images
   } = announcement.realtyInformation;
 
-  console.log(announcement);
+  console.log(images);
 
   return (
     <StyledAnnouncementWrapper>
       <StyledLeftSide>
-        <StyledImage />
+        <img src='../../images/Test1.png' alt='Test1.png' />
+        {images?.[0] && <StyledImage imgSrc='../../images/Test1.png' />}
       </StyledLeftSide>
       <StyledRightSide>
         <StyledLink>
@@ -51,7 +53,7 @@ export const Announcement: FC<IProps> = ({ announcement }) => {
           {announcement.description}
         </div>
         <StyledCreatedAt>
-          {format(new Date(announcement.createdAt), 'dd.mm.yyyy hh:mm')}
+          {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
         </StyledCreatedAt>
       </StyledRightSide>
     </StyledAnnouncementWrapper>

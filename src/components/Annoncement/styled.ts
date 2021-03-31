@@ -36,8 +36,10 @@ export const StyledTitle = styled.div`
   font-size: 1.1rem;
 `;
 
-export const StyledImage = styled.div`
-  background-image: url('https://lh3.googleusercontent.com/proxy/x8xt1Ee9iFiYNY74mGzWaoar2zgrsUGrN8wS9_RmBi6Iftfn5hXgaHxq1mvKtiNqUFcOqzOFm2v6P19cxLt7xne8UfdVclIJErc1FjBx6UR8C547jTXSIgyWKznlJnc5cF5BXcnnGxsGXaK3oA');
+// ${({ imgSrc }) => imgSrc}
+
+export const StyledImage = styled.div<{ imgSrc: string }>`
+  background-image: url('../../images/Test1.png');
   width: 100px;
   height: 100px;
   background-position: center;
