@@ -58,7 +58,7 @@ export const StyledLink = styled.div`
   padding: 0 15px;
   cursor: pointer;
   height: 100%;
-
+  margin-right: 10px;
   transition: background-color 0.3s ease-in-out;
 
   a {

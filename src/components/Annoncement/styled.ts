@@ -11,6 +11,7 @@ export const StyledAnnouncementWrapper = styled.div`
 
 export const StyledLeftSide = styled.div`
   width: 100px;
+  margin-right: 15px;
 `;
 
 export const StyledRightSide = styled.div`
@@ -29,19 +30,19 @@ export const StyledBoldText = styled.span`
 
 export const StyledCreatedAt = styled.div`
   margin-top: 20px;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const StyledTitle = styled.div`
   font-size: 1.1rem;
 `;
 
-// ${({ imgSrc }) => imgSrc}
-
 export const StyledImage = styled.div<{ imgSrc: string }>`
-  background-image: url('../../images/Test1.png');
+  background-image: url(${({ imgSrc }) => imgSrc});
   width: 100px;
-  height: 100px;
+  height: 150px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -62,5 +63,20 @@ export const StyledLink = styled.div`
     &:visited {
       color: #51add5;
     }
+  }
+`;
+
+export const StyledReserveButton = styled.div`
+  padding: 8px 16px;
+  background: #0071c2;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  width: fit-content;
+
+  &:hover {
+    background: #0071b1;
   }
 `;

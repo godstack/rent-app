@@ -11,14 +11,17 @@ import {
   StyledPrice,
   StyledRightSide,
   StyledTitle,
-  StyledLink
+  StyledLink,
+  StyledReserveButton
 } from './styled';
 
 interface IProps {
   announcement: IAnnouncement;
+  handleReserve: (announcementId: number) => void;
 }
 
-export const Announcement: FC<IProps> = ({ announcement }) => {
+export const Announcement: FC<IProps> = ({ announcement, handleReserve }) => {
+  console.log(announcement);
   const {
     address,
     heatingType,
@@ -28,13 +31,10 @@ export const Announcement: FC<IProps> = ({ announcement }) => {
     images
   } = announcement.realtyInformation;
 
-  console.log(images);
-
   return (
     <StyledAnnouncementWrapper>
       <StyledLeftSide>
-        <img src='../../images/Test1.png' alt='Test1.png' />
-        {images?.[0] && <StyledImage imgSrc='../../images/Test1.png' />}
+        {images?.[0] && <StyledImage imgSrc={images?.[0].path} />}
       </StyledLeftSide>
       <StyledRightSide>
         <StyledLink>
@@ -53,7 +53,14 @@ export const Announcement: FC<IProps> = ({ announcement }) => {
           {announcement.description}
         </div>
         <StyledCreatedAt>
-          {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
+          <span>
+            {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
+          </span>
+          <StyledReserveButton
+            onClick={() => handleReserve(announcement.announcementId)}
+          >
+            Забронювати
+          </StyledReserveButton>
         </StyledCreatedAt>
       </StyledRightSide>
     </StyledAnnouncementWrapper>

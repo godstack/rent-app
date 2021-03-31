@@ -25,6 +25,9 @@ const Header: FC = () => {
             <StyledLink>
               <Link to='/main'>На головну</Link>
             </StyledLink>
+            <StyledLink>
+              <Link to='/reserved'>Заброньовані</Link>
+            </StyledLink>
           </LinksWrapper>
           <StyledExitButton onClick={handleSingOut}>Вихід</StyledExitButton>
         </>

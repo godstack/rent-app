@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { toast } from 'react-toastify';
@@ -18,11 +18,16 @@ import {
   StyledButtonsWrapper
 } from './styled';
 
+interface IDate {
+  fromDate: Date | null;
+  toDate: Date | null;
+}
 interface IProps {
   getAllAnnouncements: (payload: IAllAnnouncements) => void;
+  setDates: (name: string, value: string) => void;
 }
 
-export const FilterForm: FC<IProps> = ({ getAllAnnouncements }) => {
+export const FilterForm: FC<IProps> = ({ getAllAnnouncements, setDates }) => {
   const {
     register,
     errors,
@@ -32,6 +37,12 @@ export const FilterForm: FC<IProps> = ({ getAllAnnouncements }) => {
   } = useForm<IAllAnnouncements>({
     defaultValues: defaultAllAnnouncementsPayload
   });
+
+  const handleChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setDates(name, value);
+  };
 
   const onSubmit = (data: IAllAnnouncements) => {
     if (data.fromDate > data.toDate) {
@@ -216,6 +227,7 @@ export const FilterForm: FC<IProps> = ({ getAllAnnouncements }) => {
               required: { value: true, message: "Обо'язкове поле" }
             })}
             type='date'
+            onChange={handleChangeDate}
           />
           {errors.fromDate && (
             <StyledErrorMessage>{errors.fromDate.message}</StyledErrorMessage>
@@ -231,6 +243,7 @@ export const FilterForm: FC<IProps> = ({ getAllAnnouncements }) => {
             ref={register({
               required: { value: true, message: "Обо'язкове поле" }
             })}
+            onChange={handleChangeDate}
             type='date'
           />
           {errors.toDate && (
