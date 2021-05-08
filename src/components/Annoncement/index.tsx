@@ -12,7 +12,8 @@ import {
   StyledRightSide,
   StyledTitle,
   StyledLink,
-  StyledReserveButton
+  StyledReserveButton,
+  StyledDescription
 } from './styled';
 
 interface IProps {
@@ -48,10 +49,10 @@ export const Announcement: FC<IProps> = ({ announcement, handleReserve }) => {
           <StyledBoldText>Адрес:</StyledBoldText>
           {announcement.city}. {address}
         </div>
-        <div>
+        <StyledDescription>
           <StyledBoldText>Опис:</StyledBoldText>опалення {heatingType},{' '}
           {announcement.description}
-        </div>
+        </StyledDescription>
         <StyledCreatedAt>
           <span>
             {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}

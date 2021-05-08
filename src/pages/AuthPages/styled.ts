@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledFormWrapper = styled.div`
-  margin-top: 100px;
+  margin: 100px 0;
   width: 450px;
   background: #fff;
   border-radius: 10px;
@@ -55,6 +55,21 @@ export const StyledInput = styled.input`
   }
 `;
 
+export const StyledSelect = styled.select`
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #adadad;
+`;
+
 export const StyledErrorMessage = styled.div`
   position: absolute;
   bottom: -30px;
@@ -106,5 +121,41 @@ export const StyledLink = styled.div`
       color: #353535;
       text-decoration: none;
     }
+  }
+`;
+
+export const StyledParagraph = styled.p`
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+`;
+
+export const StyledRadioWrapper = styled.div`
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+`;
+
+export const StyledTextarea = styled.textarea`
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #adadad;
+
+  &::placeholder {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+    text-transform: uppercase;
   }
 `;

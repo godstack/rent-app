@@ -51,7 +51,7 @@ const LoginPage: FC = () => {
           <StyledInput
             name='login'
             type='text'
-            placeholder='email'
+            placeholder='електронна пошта'
             ref={register({
               required: { value: true, message: "Поле обов'язквое" },
               pattern: {
@@ -68,7 +68,7 @@ const LoginPage: FC = () => {
           <StyledInput
             name='password'
             type='password'
-            placeholder='password'
+            placeholder='пароль'
             ref={register({
               required: { value: true, message: "Поле обов'язквое" },
               minLength: {

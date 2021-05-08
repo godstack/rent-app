@@ -7,6 +7,23 @@ interface IAuth {
   password: string;
 }
 
+export interface IRegister extends IAuth {
+  profile: {
+    name: string;
+    surname: string;
+    age: string;
+    sex: string;
+    temperament: string;
+    cook: string;
+    activity: string;
+    rest: string;
+    status: string;
+    conflict: string;
+    pet: string;
+    review: string;
+  };
+}
+
 interface IImage {
   imageInfoId: number;
   name: string;
@@ -103,7 +120,7 @@ interface IPostRent {
 }
 
 export const RentApi = {
-  register(payload: IAuth) {
+  register(payload: IRegister) {
     return axios.post(`${localhost}/api/Account/Registration`, payload);
   },
   login(payload: IAuth) {

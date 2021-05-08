@@ -80,3 +80,7 @@ export const StyledReserveButton = styled.div`
     background: #0071b1;
   }
 `;
+
+export const StyledDescription = styled.div`
+  white-space: pre-wrap;
+`;
