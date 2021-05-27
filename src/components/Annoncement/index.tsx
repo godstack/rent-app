@@ -19,18 +19,16 @@ import {
 interface IProps {
   announcement: IAnnouncement;
   handleReserve: (announcementId: number) => void;
+  handlePostCommonRent: (announcementId: number) => void;
 }
 
-export const Announcement: FC<IProps> = ({ announcement, handleReserve }) => {
-  console.log(announcement);
-  const {
-    address,
-    heatingType,
-    roomCount,
-    square,
-    year,
-    images
-  } = announcement.realtyInformation;
+export const Announcement: FC<IProps> = ({
+  announcement,
+  handleReserve,
+  handlePostCommonRent
+}) => {
+  const { address, heatingType, roomCount, square, year, images } =
+    announcement.realtyInformation;
 
   return (
     <StyledAnnouncementWrapper>
@@ -57,6 +55,11 @@ export const Announcement: FC<IProps> = ({ announcement, handleReserve }) => {
           <span>
             {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
           </span>
+          <StyledReserveButton
+            onClick={() => handlePostCommonRent(announcement.announcementId)}
+          >
+            Спільна оренда
+          </StyledReserveButton>
           <StyledReserveButton
             onClick={() => handleReserve(announcement.announcementId)}
           >

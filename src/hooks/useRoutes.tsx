@@ -5,6 +5,7 @@ import MainPage from 'pages/MainPage';
 import { useAuth } from './useAuth';
 import { AnnouncementPage } from 'pages/AnnouncementPage';
 import { ReservedPage } from 'pages/ReservedPage';
+import CommonRentPage from 'pages/CommonRentPage';
 
 export const useRoutes = () => {
   const auth = useAuth();
@@ -15,6 +16,7 @@ export const useRoutes = () => {
         <Route path='/main' exact component={MainPage} />
         <Route path='/reserved' exact component={ReservedPage} />
         <Route path='/announcement/:id' exact component={AnnouncementPage} />
+        <Route path='/commonRent' component={CommonRentPage} />
         <Redirect to='/main' />
       </Switch>
     );

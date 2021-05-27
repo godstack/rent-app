@@ -53,6 +53,16 @@ export interface IAnnouncement {
   title: string;
 }
 
+export interface ICommonAnnouncement {
+  compability: number;
+  name: string;
+  surname: string;
+  phone: string;
+  age: string;
+  review: string;
+  sex: string;
+}
+
 export interface IReserved {
   announcement: {
     announcementId: number;
@@ -152,6 +162,20 @@ export const RentApi = {
   },
   postRent(token: string, payload: IPostRent) {
     return axios.post(`${localhost}/api/Rent`, payload, {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
+  },
+  postCommonRent(token: string, announcementId: number) {
+    return axios.post(`${localhost}/api/Compatible/${announcementId}`, {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
+  },
+  getCommonRent(token: string, announcementId: number) {
+    return axios.get(`${localhost}/api/Compatible/${announcementId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }

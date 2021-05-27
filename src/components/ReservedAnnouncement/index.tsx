@@ -24,25 +24,11 @@ interface IProps {
 }
 
 export const ReservedAnnouncement: FC<IProps> = ({ reserved }) => {
-  const {
-    address,
-    heatingType,
-    roomCount,
-    square,
-    year,
-    images
-  } = reserved.announcement.realtyInformation;
+  const { address, heatingType, roomCount, square, year, images } =
+    reserved.announcement.realtyInformation;
 
-  const {
-    city,
-    createdAt,
-    price,
-    announcementId,
-    title,
-    description
-  } = reserved.announcement;
-
-  console.log(images);
+  const { city, createdAt, price, announcementId, title, description } =
+    reserved.announcement;
 
   return (
     <StyledAnnouncementWrapper>

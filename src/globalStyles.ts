@@ -5,6 +5,8 @@ export const MainWrapper = styled.main`
   justify-content: center;
   align-items: center;
   height: calc(100% - 55px);
+  background: #f3f5f9;
+  min-height: 100vh;
 `;
 
 export const GlobalStyles = createGlobalStyle`

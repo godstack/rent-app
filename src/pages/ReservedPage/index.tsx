@@ -18,7 +18,7 @@ export const ReservedPage: FC = () => {
 
     try {
       const res = await RentApi.getRent(auth.token);
-      console.log('reserved', res.data);
+
       setReserved(res.data);
 
       setIsLoading(false);

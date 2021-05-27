@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { Announcement } from 'components/Annoncement';
 import { Loader } from 'components/Loader';
 import { useAuth } from 'hooks/useAuth';
+import { useHistory } from 'react-router-dom';
 
 import {
   RentApi,
@@ -12,6 +13,7 @@ import {
 } from 'RentApi';
 import { StyledMain, StyledNoInfo, Title } from './styled';
 import { FilterForm } from 'components/FilterForm';
+import CommonAnnouncement from 'components/CommonAnnouncement';
 
 interface IDate {
   fromDate: Date | null;
@@ -28,6 +30,8 @@ const MainPage: FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [announcements, setAnnouncements] = useState<IAnnouncement[]>([]);
+
+  const history = useHistory();
 
   const getAllAnnouncements = async (payload: IAllAnnouncements) => {
     if (!auth.token) return;
@@ -77,6 +81,20 @@ const MainPage: FC = () => {
     }
   };
 
+  const handlePostCommonRent = async (announcementId: number) => {
+    if (!auth.token) return;
+
+    try {
+      await RentApi.postCommonRent(auth.token, announcementId);
+
+      history.push(`/commonRent?announcementId=${announcementId}`);
+    } catch (e) {
+      toast(e.message, {
+        type: 'error'
+      });
+    }
+  };
+
   const handleSetDates = (name: string, value: string) => {
     setDates({ ...dates, [name]: value });
   };
@@ -102,6 +120,7 @@ const MainPage: FC = () => {
             announcement={item}
             key={item.announcementId}
             handleReserve={handleReserve}
+            handlePostCommonRent={handlePostCommonRent}
           />
         ))
       ) : (

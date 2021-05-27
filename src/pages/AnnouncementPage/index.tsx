@@ -29,7 +29,6 @@ export const AnnouncementPage: FC = () => {
 
     try {
       const res = await RentApi.getAnnouncementById(id, auth.token);
-      console.log('getAnnouncementById', res);
 
       setAnnouncement(res.data);
       setIsLoading(false);
@@ -45,8 +44,6 @@ export const AnnouncementPage: FC = () => {
   useEffect(() => {
     getAnnouncementById();
   }, []);
-
-  console.log(announcement);
 
   if (isLoading) {
     return (
