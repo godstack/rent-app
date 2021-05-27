@@ -131,51 +131,51 @@ interface IPostRent {
 
 export const RentApi = {
   register(payload: IRegister) {
-    return axios.post(`${localhost}/api/Account/Registration`, payload);
+    return axios.post(`${localhost}/api/account/Registration`, payload);
   },
   login(payload: IAuth) {
-    return axios.post(`${localhost}/api/Account/Login`, payload);
+    return axios.post(`${localhost}/api/account/Login`, payload);
   },
   getAllAnnouncements(
     token: string,
     payload: IAllAnnouncements = defaultAllAnnouncementsPayload
   ) {
-    return axios.post(`${localhost}/api/Announcement`, payload, {
+    return axios.post(`${localhost}/api/announcement`, payload, {
       headers: {
         authorization: `Bearer ${token}`
       }
     });
   },
   getAnnouncementById(id: string, token: string) {
-    return axios.get(`${localhost}/api/Announcement/${id}`, {
+    return axios.get(`${localhost}/api/announcement/${id}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
     });
   },
   getRent(token: string) {
-    return axios.get(`${localhost}/api/Rent`, {
+    return axios.get(`${localhost}/api/rent`, {
       headers: {
         authorization: `Bearer ${token}`
       }
     });
   },
   postRent(token: string, payload: IPostRent) {
-    return axios.post(`${localhost}/api/Rent`, payload, {
+    return axios.post(`${localhost}/api/rent`, payload, {
       headers: {
         authorization: `Bearer ${token}`
       }
     });
   },
   postCommonRent(token: string, announcementId: number) {
-    return axios.post(`${localhost}/api/Compatible/${announcementId}`, {
+    return axios.post(`${localhost}/api/compatibility/${announcementId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
     });
   },
   getCommonRent(token: string, announcementId: number) {
-    return axios.get(`${localhost}/api/Compatible/${announcementId}`, {
+    return axios.get(`${localhost}/api/compatibility/${announcementId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
