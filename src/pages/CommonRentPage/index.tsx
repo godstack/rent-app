@@ -28,7 +28,7 @@ const CommonRentPage: FC = () => {
         parseInt(announcementId)
       );
 
-      setAnnouncements(res.data.items);
+      setAnnouncements(res.data);
 
       setIsLoading(false);
     } catch (e) {
