@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { ICommonAnnouncement, RentApi } from 'RentApi';
 import { Loader } from 'components/Loader';
 import CommonAnnouncement from 'components/CommonAnnouncement';
-import { StyledNoInfo } from './styled';
+import { StyledNoInfo, StyledWrapper } from './styled';
 import { useQuery } from 'hooks/useQuery';
 
 const CommonRentPage: FC = () => {
@@ -45,7 +45,7 @@ const CommonRentPage: FC = () => {
   }, []);
 
   return (
-    <div>
+    <StyledWrapper>
       {isLoading && <Loader />}
 
       {announcements.length ? (
@@ -55,7 +55,7 @@ const CommonRentPage: FC = () => {
       ) : (
         <StyledNoInfo>Немає жодної сумісної об'яви</StyledNoInfo>
       )}
-    </div>
+    </StyledWrapper>
   );
 };
 
