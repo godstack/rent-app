@@ -168,11 +168,15 @@ export const RentApi = {
     });
   },
   postCommonRent(token: string, announcementId: number) {
-    return axios.post(`${localhost}/api/compatibility/${announcementId}`, {
-      headers: {
-        authorization: `Bearer ${token}`
+    return axios.post(
+      `${localhost}/api/compatibility/${announcementId}`,
+      {},
+      {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
       }
-    });
+    );
   },
   getCommonRent(token: string, announcementId: number) {
     return axios.get(`${localhost}/api/compatibility/${announcementId}`, {
