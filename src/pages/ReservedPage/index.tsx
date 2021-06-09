@@ -34,10 +34,17 @@ export const ReservedPage: FC = () => {
   useEffect(() => {
     getRent();
   }, []);
+
+  if (isLoading) {
+    return (
+      <StyledWrapper>
+        <Loader />
+      </StyledWrapper>
+    );
+  }
+
   return (
     <StyledWrapper>
-      {isLoading && <Loader />}
-
       <Title>Заброньовані</Title>
 
       {reserved.length ? (

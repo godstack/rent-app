@@ -2,19 +2,20 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { IReserved } from 'RentApi';
 import { format } from 'date-fns';
+
 import {
-  StyledAnnouncementWrapper,
-  StyledBoldText,
   StyledImage,
-  StyledPrice,
-  StyledTitle,
-  StyledLink
-} from '../Annoncement/styled';
-import {
-  StyledDateWrapper,
-  StyledReservedDates,
+  StyledAnnouncementWrapper,
   StyledDate,
-  DateTitle
+  DateTitle,
+  StyledLink,
+  StyledTitle,
+  StyledPrice,
+  StyledBoldText,
+  StyledAddress,
+  StyledDescription,
+  StyledReservedTo,
+  StyledReservedFrom
 } from './styled';
 
 interface IProps {
@@ -39,29 +40,27 @@ export const ReservedAnnouncement: FC<IProps> = ({ reserved }) => {
       </StyledLink>
       <StyledTitle>{title}</StyledTitle>
       <StyledPrice>{price} грн./доба</StyledPrice>
-      <div>
+      <StyledAddress>
         <StyledBoldText>Адрес:</StyledBoldText>
         {city}. {address}
-      </div>
-      <div>
+      </StyledAddress>
+      <StyledDescription>
         <StyledBoldText>Опис:</StyledBoldText>опалення {heatingType},{' '}
         {description}
-      </div>
+      </StyledDescription>
 
-      <StyledDateWrapper>
-        <StyledReservedDates>
-          <DateTitle>Дата заселення</DateTitle>
-          <StyledDate>
-            {format(new Date(reserved.fromDate), 'dd.MM.yyyy')}
-          </StyledDate>
-        </StyledReservedDates>
-        <StyledReservedDates>
-          <DateTitle>Дата виселення</DateTitle>
-          <StyledDate>
-            {format(new Date(reserved.toDate), 'dd.MM.yyyy')}
-          </StyledDate>
-        </StyledReservedDates>
-      </StyledDateWrapper>
+      <StyledReservedFrom>
+        <DateTitle>Дата заселення</DateTitle>
+        <StyledDate>
+          {format(new Date(reserved.fromDate), 'dd.MM.yyyy')}
+        </StyledDate>
+      </StyledReservedFrom>
+      <StyledReservedTo>
+        <DateTitle>Дата виселення</DateTitle>
+        <StyledDate>
+          {format(new Date(reserved.toDate), 'dd.MM.yyyy')}
+        </StyledDate>
+      </StyledReservedTo>
     </StyledAnnouncementWrapper>
   );
 };

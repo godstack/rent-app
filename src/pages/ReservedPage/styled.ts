@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const StyledNoInfo = styled.div`
