@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledForm = styled.form`
   position: fixed;
-  top: 100px;
+  top: 120px;
   left: 30px;
   padding: 20px;
   background-color: #ffb31c;

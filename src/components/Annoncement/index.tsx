@@ -5,15 +5,15 @@ import { format } from 'date-fns';
 import {
   StyledAnnouncementWrapper,
   StyledBoldText,
-  StyledCreatedAt,
   StyledImage,
-  StyledLeftSide,
   StyledPrice,
-  StyledRightSide,
   StyledTitle,
   StyledLink,
   StyledReserveButton,
-  StyledDescription
+  StyledDescription,
+  StyledDate,
+  StyledAddress,
+  StyledCommonButton
 } from './styled';
 
 interface IProps {
@@ -32,41 +32,37 @@ export const Announcement: FC<IProps> = ({
 
   return (
     <StyledAnnouncementWrapper>
-      <StyledLeftSide>
-        {images?.[0] && <StyledImage imgSrc={images?.[0].path} />}
-      </StyledLeftSide>
-      <StyledRightSide>
-        <StyledLink>
-          <Link to={`/announcement/${announcement.announcementId}`}>
-            {roomCount}-комн. квартира, {square} м², будинок {year} року
-          </Link>
-        </StyledLink>
-        <StyledTitle>{announcement.title}</StyledTitle>
-        <StyledPrice>{announcement.price} грн./доба</StyledPrice>
-        <div>
-          <StyledBoldText>Адрес:</StyledBoldText>
-          {announcement.city}. {address}
-        </div>
-        <StyledDescription>
-          <StyledBoldText>Опис:</StyledBoldText>опалення {heatingType},{' '}
-          {announcement.description}
-        </StyledDescription>
-        <StyledCreatedAt>
-          <span>
-            {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
-          </span>
-          <StyledReserveButton
-            onClick={() => handlePostCommonRent(announcement.announcementId)}
-          >
-            Спільна оренда
-          </StyledReserveButton>
-          <StyledReserveButton
-            onClick={() => handleReserve(announcement.announcementId)}
-          >
-            Забронювати
-          </StyledReserveButton>
-        </StyledCreatedAt>
-      </StyledRightSide>
+      {images?.[0] && <StyledImage imgSrc={images?.[0].path} />}
+
+      <StyledLink>
+        <Link to={`/announcement/${announcement.announcementId}`}>
+          {roomCount}-комн. квартира, {square} м², будинок {year} року
+        </Link>
+      </StyledLink>
+      <StyledTitle>{announcement.title}</StyledTitle>
+      <StyledPrice>{announcement.price} грн./доба</StyledPrice>
+      <StyledAddress>
+        <StyledBoldText>Адрес:</StyledBoldText>
+        {announcement.city}. {address}
+      </StyledAddress>
+      <StyledDescription>
+        <StyledBoldText>Опис:</StyledBoldText>опалення {heatingType},{' '}
+        {announcement.description}
+      </StyledDescription>
+
+      <StyledDate>
+        {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
+      </StyledDate>
+      <StyledCommonButton
+        onClick={() => handlePostCommonRent(announcement.announcementId)}
+      >
+        Спільна оренда
+      </StyledCommonButton>
+      <StyledReserveButton
+        onClick={() => handleReserve(announcement.announcementId)}
+      >
+        Забронювати
+      </StyledReserveButton>
     </StyledAnnouncementWrapper>
   );
 };

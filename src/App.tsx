@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Header from './components/Header';
-import { GlobalStyles, MainWrapper } from './globalStyles';
+import { GlobalStyles } from './globalStyles';
 import { useRoutes } from 'hooks/useRoutes';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -14,7 +14,7 @@ const App: FC = () => {
       <div>
         <GlobalStyles />
         <Header />
-        <MainWrapper>{routes}</MainWrapper>
+        <main>{routes}</main>
         <ToastContainer />
       </div>
     </Router>

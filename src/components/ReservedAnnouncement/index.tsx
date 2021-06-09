@@ -6,9 +6,7 @@ import {
   StyledAnnouncementWrapper,
   StyledBoldText,
   StyledImage,
-  StyledLeftSide,
   StyledPrice,
-  StyledRightSide,
   StyledTitle,
   StyledLink
 } from '../Annoncement/styled';
@@ -32,41 +30,38 @@ export const ReservedAnnouncement: FC<IProps> = ({ reserved }) => {
 
   return (
     <StyledAnnouncementWrapper>
-      <StyledLeftSide>
-        {images?.[0] && <StyledImage imgSrc={images?.[0].path} />}
-      </StyledLeftSide>
-      <StyledRightSide>
-        <StyledLink>
-          <Link to={`/announcement/${announcementId}`}>
-            {roomCount}-комн. квартира, {square} м², будинок {year} року
-          </Link>
-        </StyledLink>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledPrice>{price} грн./доба</StyledPrice>
-        <div>
-          <StyledBoldText>Адрес:</StyledBoldText>
-          {city}. {address}
-        </div>
-        <div>
-          <StyledBoldText>Опис:</StyledBoldText>опалення {heatingType},{' '}
-          {description}
-        </div>
+      {images?.[0] && <StyledImage imgSrc={images?.[0].path} />}
 
-        <StyledDateWrapper>
-          <StyledReservedDates>
-            <DateTitle>Дата заселення</DateTitle>
-            <StyledDate>
-              {format(new Date(reserved.fromDate), 'dd.MM.yyyy')}
-            </StyledDate>
-          </StyledReservedDates>
-          <StyledReservedDates>
-            <DateTitle>Дата виселення</DateTitle>
-            <StyledDate>
-              {format(new Date(reserved.toDate), 'dd.MM.yyyy')}
-            </StyledDate>
-          </StyledReservedDates>
-        </StyledDateWrapper>
-      </StyledRightSide>
+      <StyledLink>
+        <Link to={`/announcement/${announcementId}`}>
+          {roomCount}-комн. квартира, {square} м², будинок {year} року
+        </Link>
+      </StyledLink>
+      <StyledTitle>{title}</StyledTitle>
+      <StyledPrice>{price} грн./доба</StyledPrice>
+      <div>
+        <StyledBoldText>Адрес:</StyledBoldText>
+        {city}. {address}
+      </div>
+      <div>
+        <StyledBoldText>Опис:</StyledBoldText>опалення {heatingType},{' '}
+        {description}
+      </div>
+
+      <StyledDateWrapper>
+        <StyledReservedDates>
+          <DateTitle>Дата заселення</DateTitle>
+          <StyledDate>
+            {format(new Date(reserved.fromDate), 'dd.MM.yyyy')}
+          </StyledDate>
+        </StyledReservedDates>
+        <StyledReservedDates>
+          <DateTitle>Дата виселення</DateTitle>
+          <StyledDate>
+            {format(new Date(reserved.toDate), 'dd.MM.yyyy')}
+          </StyledDate>
+        </StyledReservedDates>
+      </StyledDateWrapper>
     </StyledAnnouncementWrapper>
   );
 };

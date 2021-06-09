@@ -11,9 +11,8 @@ import {
   defaultAllAnnouncementsPayload,
   IAnnouncement
 } from 'RentApi';
-import { StyledMain, StyledNoInfo, Title } from './styled';
+import { StyledMain, StyledNoInfo, Title, StyledWrapper } from './styled';
 import { FilterForm } from 'components/FilterForm';
-import CommonAnnouncement from 'components/CommonAnnouncement';
 
 interface IDate {
   fromDate: Date | null;
@@ -112,22 +111,24 @@ const MainPage: FC = () => {
 
       {isLoading && <Loader />}
 
-      <Title>Усі оголошення</Title>
+      <StyledWrapper>
+        <Title>Усі оголошення</Title>
 
-      {announcements.length ? (
-        announcements.map(item => (
-          <Announcement
-            announcement={item}
-            key={item.announcementId}
-            handleReserve={handleReserve}
-            handlePostCommonRent={handlePostCommonRent}
-          />
-        ))
-      ) : (
-        <StyledNoInfo>
-          Немає жодної об'яви, що відповідає вибраним фільтрам
-        </StyledNoInfo>
-      )}
+        {announcements.length ? (
+          announcements.map(item => (
+            <Announcement
+              announcement={item}
+              key={item.announcementId}
+              handleReserve={handleReserve}
+              handlePostCommonRent={handlePostCommonRent}
+            />
+          ))
+        ) : (
+          <StyledNoInfo>
+            Немає жодної об'яви, що відповідає вибраним фільтрам
+          </StyledNoInfo>
+        )}
+      </StyledWrapper>
     </StyledMain>
   );
 };

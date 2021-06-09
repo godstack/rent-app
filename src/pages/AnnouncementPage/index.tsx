@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import { IAnnouncement, RentApi } from 'RentApi';
 import { format } from 'date-fns';
-import { StyledCreatedAt } from 'components/Annoncement/styled';
+
 import {
   StyledWrapper,
   StyledBlock,
@@ -57,25 +57,6 @@ export const AnnouncementPage: FC = () => {
     <StyledWrapper>
       {!!announcement ? (
         <>
-          {/* <StyledBlock>
-            <StyledInfo>{announcement.price} грн./доба</StyledInfo>
-            <StyledInfo> {announcement.title}</StyledInfo>
-            <StyledInfo> {announcement.description}</StyledInfo>
-            <StyledInfo>
-              {announcement.city}. {announcement.realtyInformation.address}
-            </StyledInfo>
-            <StyledInfo>
-              Опалення {announcement.realtyInformation.heatingType},{' '}
-              {announcement.realtyInformation.roomCount}-комн. квартира,{' '}
-              {announcement.realtyInformation.square} м², будинок{' '}
-              {announcement.realtyInformation.year} року
-            </StyledInfo>
-
-            <StyledCreatedAt>
-              {format(new Date(announcement.createdAt), 'dd.mm.yyyy hh:mm')}
-            </StyledCreatedAt>
-          </StyledBlock> */}
-
           <StyledBlock>
             <StyledBlockName>Опис</StyledBlockName>
             <StyledMainInfo>
@@ -111,9 +92,9 @@ export const AnnouncementPage: FC = () => {
               <div>{announcement.description}</div>
             </div>
 
-            <StyledCreatedAt>
+            <div>
               {format(new Date(announcement.createdAt), 'dd.MM.yyyy hh:mm')}
-            </StyledCreatedAt>
+            </div>
           </StyledBlock>
         </>
       ) : (

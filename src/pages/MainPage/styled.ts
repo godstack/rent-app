@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledMain = styled.div`
-  margin-top: 30px;
-  margin-left: 500px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-areas: '. announcements';
+  grid-template-columns: 500px 1fr;
+  gap: 20px;
+`;
+
+export const StyledWrapper = styled.div`
+  grid-area: announcements;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 `;
 
 export const StyledNoInfo = styled.div`
